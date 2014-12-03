@@ -44,16 +44,16 @@ public class CreditCard
   
   public int findType(String num)
   {
-    if (Integer.parseInt(num.substring(0, 2)) > 50 && Integer.parseInt(num.substring(0, 2)) < 56) return 1;
-    else if (num.substring(0, 1).equals("4")) return 2;
-    else if (Integer.parseInt(num.substring(0, 2)) == 34 || Integer.parseInt(num.substring(0, 2)) == 37) return 3;
-    else if (num.substring(0, 4).equals("6011")) return 4;
+    if (Integer.parseInt(num.substring(0, 2)) > 50 && Integer.parseInt(num.substring(0, 2)) < 56 && num.length() == 16) return 1;
+    else if (num.substring(0, 1).equals("4") && (num.length() == 13 || num.length() == 16)) return 2;
+    else if ((Integer.parseInt(num.substring(0, 2)) == 34 || Integer.parseInt(num.substring(0, 2)) == 37) && num.length() == 15) return 3;
+    else if (num.substring(0, 4).equals("6011") && num.length() == 16) return 4;
     else //This one uses an array since there are so many possible starting numbers for Diner's club.
     {
       boolean dinerscard = false; //Set a boolean that determines if the card is a diners card.
       for (String dinernumbers: Diners)
       {
-        if (num.indexOf(dinernumbers) == 0) return 5; //If the credit card number starts with any of the numbers defined in the array, return the index of Diners card.
+        if (num.indexOf(dinernumbers) == 0 && num.length() == 14) return 5; //If the credit card number starts with any of the numbers defined in the array, return the index of Diners card.
       }
         return 0;
     }
