@@ -1,0 +1,70 @@
+
+public class CreditCard
+{
+  
+  
+  public String verify(String num)
+  {
+   int oddeven = 1; //Int that keeps track of whether the number is an odd or even term. 1 is odd, 0 is even.
+   int totalsum = 0; //Placeholder for total sum.
+   
+  for (int i = num.length(); i>0; i--) //For loop that goes through each character (digit) of the String.
+  {
+  int digit = Integer.parseInt(num.substring(i-1, i));
+    if (oddeven == 1)
+    {
+     totalsum += digit;
+     oddeven = 0;
+    }
+    else 
+    {
+      int doubleeven = 2 * digit;
+      if (doubleeven < 10)
+      {
+        totalsum += doubleeven;
+      }
+      else 
+      {
+        totalsum += doubleeven/10 + doubleeven % 10;
+      }
+    oddeven = 1;
+    }
+  }
+   if (totalsum%10 == 0)
+   {
+    return "Yes.";
+   }
+   else 
+   {
+     return "No.";
+   }
+  }
+
+  private String[] Diners = new String[7];
+  Diners = {"36", "38", "301", "302", "303", "304", "305"};
+  
+  public int findType(String num)
+  {
+    if (Integer.parseInt(num.substring(0, 2)) > 50 && Integer.parseInt(num.substring(0, 2)) < 56) return 1;
+    else if (num.substring(0, 1).equals("4")) return 2;
+    else if (Integer.parseInt(num.substring(0, 2)) == 34 || Integer.parseInt(num.substring(0, 2)) == 37) return 3;
+    else if (num.substring(0, 4).equals("6011")) return 4;
+    else if 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+
+//Luhn Check
+  //MasterCard=51-55
+ // Visa = 4
+ // Discover = 6011
+  
+ // MAke an arrayList one for odd and one for even
+ // list.add.
